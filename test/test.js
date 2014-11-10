@@ -104,7 +104,7 @@ test('font2svg()', function(t) {
   });
 
   t.throws(
-    font2svg.bind(null, new Buffer('foo'), noop), /Index out of range/,
+    font2svg.bind(null, new Buffer('foo'), noop), /out/,
     'should throw an error when the buffer doesn\'t represent a font.'
   );
 

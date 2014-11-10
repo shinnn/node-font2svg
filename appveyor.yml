@@ -11,8 +11,7 @@ environment:
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install -g npm
-  - npm install --production
-  - npm install nop tape
+  - npm install
 
 build: off
 

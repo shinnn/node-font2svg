@@ -1,8 +1,8 @@
 # font2svg
 
-[![Build Status](https://travis-ci.org/shinnn/node-font2svg.svg?branch=master)](https://travis-ci.org/shinnn/node-font2svg)
+<!-- [![Build Status](https://travis-ci.org/shinnn/node-font2svg.svg?branch=master)](https://travis-ci.org/shinnn/node-font2svg)
 [![Build status](https://ci.appveyor.com/api/projects/status/15sny6ppx9ar788i?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/node-font2svg)
-[![Coverage Status](https://img.shields.io/coveralls/shinnn/node-font2svg.svg)](https://coveralls.io/r/shinnn/node-font2svg)
+[![Coverage Status](https://img.shields.io/coveralls/shinnn/node-font2svg.svg)](https://coveralls.io/r/shinnn/node-font2svg) -->
 [![Dependency Status](https://david-dm.org/shinnn/node-font2svg.svg)](https://david-dm.org/shinnn/node-font2svg)
 [![devDependency Status](https://david-dm.org/shinnn/node-font2svg/dev-status.svg)](https://david-dm.org/shinnn/node-font2svg#info=devDependencies)
 
@@ -25,7 +25,11 @@ font2svg(buf, {include: ['A', 'B', 'C', '0', '1', '2']}, function(err, result) {
 
 ## Requirements
 
-`tx` (a part of [Adobe Font Development Kit for OpenType](http://www.adobe.com/devnet/opentype/afdko.html)) is required.
+Before installing this module, you should install `tx` (a part of [Adobe Font Development Kit for OpenType](http://www.adobe.com/devnet/opentype/afdko.html)):
+
+The FDK requires:
+
+> Mac OSX 10.4.x or later, or Windows XP or later
 
 After installation, run `tx -v` command to check if `tx` has been installed successfully.
  

@@ -1,3 +1,4 @@
 coverage
+FDK
 node_modules
-test/tmp
+tmp

@@ -1,0 +1,77 @@
+{
+  "name": "font2svg",
+  "version": "0.0.0",
+  "description": "Create a SVG subset font from a font file",
+  "repository": "shinnn/node-font2svg",
+  "author": {
+    "name": "Shinnosuke Watanabe",
+    "url": "https://github.com/shinnn"
+  },
+  "scripts": {
+    "pretest": "eslint *.js test/test.js & jscs .",
+    "test": "node test/test.js | tap-spec",
+    "coverage": "istanbul cover test/test.js",
+    "coveralls": "${npm_package_scripts_coverage} && istanbul-coveralls"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shinnn/node-font2svg/blob/master/LICENSE"
+    }
+  ],
+  "files": [
+    "cli.js",
+    "index.js",
+    "LICENSE"
+  ],
+  "bin": "cli.js",
+  "keywords": [
+    "convert",
+    "converter",
+    "pfa",
+    "pfb",
+    "lwfn-post",
+    "ffil-sfnt",
+    "ttc",
+    "otf",
+    "ttf",
+    "font",
+    "glyph",
+    "subset",
+    "svg",
+    "parse",
+    "cli",
+    "command-line"
+  ],
+  "dependencies": {
+    "all-font-face-attrs": "^1.0.0",
+    "array-difference": "0.0.1",
+    "chalk": "^0.5.1",
+    "code-point": "^1.0.1",
+    "code-points": "^1.1.0",
+    "font-cmap": "^1.0.0",
+    "fs-extra": "^0.12.0",
+    "get-stdin": "^3.0.0",
+    "minimist": "^1.1.0",
+    "rimraf": "^2.2.8",
+    "sort-numbers": "^1.0.1",
+    "temp-write": "^1.1.0",
+    "xml2js": "^0.4.4"
+  },
+  "devDependencies": {
+    "eslint": "^0.9.2",
+    "istanbul": "^0.3.2",
+    "istanbul-coveralls": "^1.0.1",
+    "jscs": "^1.7.2",
+    "nop": "1.0.0",
+    "tap-spec": "^1.0.0",
+    "tape": "^3.0.2"
+  },
+  "jscsConfig": {
+    "preset": "google",
+    "maximumLineLength": 98,
+    "excludeFiles": [
+      "{coverage,node_modules}/**"
+    ]
+  }
+}

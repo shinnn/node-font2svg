@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-var fs = require('fs-extra');
-
 var fontFaceAttrNames = [];
 
 var argv = require('minimist')(process.argv.slice(2), {
@@ -20,14 +18,17 @@ var argv = require('minimist')(process.argv.slice(2), {
   }
 });
 
-var pkg = require('./package.json');
-
 function help() {
   var chalk = require('chalk');
+  var sumUp = require('sum-up');
+
+  var gray = chalk.gray;
+  var yellow = chalk.yellow;
+
+  var pkg = require('./package.json');
 
   console.log([
-    chalk.cyan(pkg.name) + chalk.gray(' v' + pkg.version),
-    pkg.description,
+    sumUp(pkg),
     '',
     'Usage1: ' + pkg.name + ' <src path> <dest path> --include <string>',
     'Usage2: ' + pkg.name + ' <src path>  --include <string> > <dest path>',
@@ -35,13 +36,13 @@ function help() {
     'Usage4: cat <src path> | ' + pkg.name + ' --include <string> > <dest path>',
     '',
     'Options:',
-    chalk.yellow('--include, -in, -i -g <string>') + '  Specify the characters to be included',
-    chalk.yellow('--(attribute name)    <string>') + '  Set attribute of font-face element',
+    yellow('--include, -in, -i -g <string>') + '  Specify the characters to be included',
+    yellow('--(attribute name)    <string>') + '  Set attribute of font-face element',
     '                                ' +
-    chalk.gray('Example: --font-weight bold --units-per-em 980'),
+    gray('Example: --font-weight bold --units-per-em 980'),
     '',
-    chalk.yellow('--help,         -h            ') + '  Print usage information',
-    chalk.yellow('--version,      -v            ') + '  Print version',
+    yellow('--help,         -h            ') + '  Print usage information',
+    yellow('--version,      -v            ') + '  Print version',
     ''
   ].join('\n'));
 }
@@ -68,7 +69,8 @@ function run(srcBuf, destPath) {
     }
 
     if (destPath) {
-      fs.outputFileSync(destPath, buf);
+      var outputFileSync = require('output-file-sync');
+      outputFileSync(destPath, buf);
       return;
     }
 
@@ -77,13 +79,14 @@ function run(srcBuf, destPath) {
 }
 
 if (argv.version) {
-  console.log(pkg.version);
+  console.log(require('./package.json').version);
 } else if (argv.help) {
   help();
 } else if (process.stdin.isTTY) {
   if (argv._.length === 0) {
     help();
   } else {
+    var fs = require('graceful-fs');
     run(fs.readFileSync(argv._[0]), argv._[1]);
   }
 } else {

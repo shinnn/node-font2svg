@@ -1,9 +1,9 @@
 'use strict';
 
-var fs = require('fs');
 var spawn = require('child_process').spawn;
 
 var font2svg = require('../');
+var fs = require('graceful-fs');
 var noop = require('nop');
 var rimraf = require('rimraf');
 var test = require('tape');

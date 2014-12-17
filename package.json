@@ -51,9 +51,12 @@
     "code-points": "^1.1.1",
     "font-cmap": "^1.0.1",
     "get-stdin": "^3.0.2",
+    "graceful-fs": "^3.0.5",
     "minimist": "^1.1.0",
+    "output-file-sync": "^1.1.0",
     "rimraf": "^2.2.8",
     "sort-numbers": "^1.0.1",
+    "sum-up": "^1.0.0",
     "temp-write": "^1.1.0",
     "xml2js": "^0.4.4"
   },
